@@ -3,15 +3,30 @@ import { render } from 'react-dom'
 import Hintable, { Hint } from '../react-hintable'
 
 const App = () => (
-  <div>
-    <div>
-      <h2>Header</h2>
-    </div>
+  <div
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between'
+    }}
+  >
     <Hintable
       render={(setTarget, target) => (
-        <div style={{ width: 300, margin: '0 auto' }}>
-          <button ref={setTarget}>button</button>
-          <Hint target={target}>Click on the button above</Hint>
+        <div>
+          <div
+            style={{
+              width: 150,
+              height: 150,
+              marginLeft: 200,
+              marginTop: 100,
+              backgroundColor: '#333',
+              color: '#fff'
+            }}
+            ref={setTarget}
+          />
+          <Hint position="top" target={target}>
+            Click on the button above
+          </Hint>
         </div>
       )}
     />

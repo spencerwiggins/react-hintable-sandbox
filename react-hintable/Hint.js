@@ -6,7 +6,8 @@ const style = {
   hintElement: {
     position: 'absolute',
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
+    zIndex: 100
   }
 }
 
@@ -51,13 +52,13 @@ export default class Hint extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.setHintPosition)
-    window.addEventListener('resize', this.setHintPosition)
+    window.addEventListener('scroll', () => this.setHintPosition(this.props))
+    window.addEventListener('resize', () => this.setHintPosition(this.props))
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.setHintPosition)
-    window.removeEventListener('resize', this.setHintPosition)
+    window.removeEventListener('scroll', () => this.setHintPosition(this.props))
+    window.removeEventListener('resize', () => this.setHintPosition(this.props))
   }
 
   render() {
@@ -69,13 +70,11 @@ export default class Hint extends React.Component {
       flexDirection: this.state.flexDirection
     }
 
-    // console.log(hintStyle)
-
     return (
       active && (
         <div style={hintStyle} ref={node => (this.hintElement = node)}>
           <HintArrow position={position} />
-          {children}
+          <div>{children}</div>
         </div>
       )
     )

@@ -2,34 +2,34 @@
 
 const topAndBottomLeft = (hint, specs) => {
   const hintMiddle = half(hint.offsetWidth)
-  const targetMiddle = specs.left + half(specs.width)
+  const targetMiddle = half(specs.width)
 
-  return targetMiddle - hintMiddle
+  return specs.left + targetMiddle - hintMiddle
 }
 
-const leftAndRightTop = (hint, specs, offset) =>
-  specs.top - half(specs.height) - half(hint.offsetHeight)
+const leftAndRightTop = (hint, specs) =>
+  specs.top + half(specs.height - hint.offsetHeight)
 
 const half = x => x / 2
 
 const top = (hint, specs, offset) => ({
-  top: specs.top - specs.height - hint.offsetHeight - offset,
+  top: specs.top - hint.offsetHeight - offset,
   left: topAndBottomLeft(hint, specs)
 })
 
 const bottom = (hint, specs, offset) => ({
-  top: specs.top + offset,
+  top: specs.top + specs.height + half(hint.offsetHeight) - offset,
   left: topAndBottomLeft(hint, specs)
 })
 
 const left = (hint, specs, offset) => ({
-  top: leftAndRightTop(hint, specs, offset),
+  top: leftAndRightTop(hint, specs),
   left: specs.left - hint.offsetWidth - offset
 })
 
 const right = (hint, specs, offset) => ({
-  top: leftAndRightTop(hint, specs, offset),
-  left: specs.right + offset
+  top: leftAndRightTop(hint, specs),
+  left: specs.left + specs.width + offset
 })
 
 const positionFn = {
@@ -52,12 +52,9 @@ const floorSpecValues = specs => {
     _specs[item] = Math.floor(specs[item])
   }
   return _specs
-
-  // console.log(Object.keys(specs))
 }
 
 export default (hint, target, { position, offset }) => {
   const specs = target.getBoundingClientRect()
-
   return positionFn[position](hint, floorSpecValues(specs), offset)
 }

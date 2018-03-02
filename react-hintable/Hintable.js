@@ -1,5 +1,11 @@
 import React from 'react'
 
+const style = {
+  container: {
+    position: 'relative'
+  }
+}
+
 export default class Hintable extends React.Component {
   state = {
     target: null
@@ -12,6 +18,10 @@ export default class Hintable extends React.Component {
   }
 
   render() {
-    return this.props.render(this.setTargetNode, this.state.target)
+    return (
+      <div style={style.container}>
+        {this.props.render(this.setTargetNode, this.state.target)}
+      </div>
+    )
   }
 }
