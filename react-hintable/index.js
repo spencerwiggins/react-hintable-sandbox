@@ -1,5 +1,5 @@
-import Hintable from './Hintable'
+import Hintable from './Hintable';
 
-export default Hintable
-export { default as Hint } from './Hint'
-export { default as HintArrow } from './HintArrow'
+export default Hintable;
+export { default as Hint } from './Hint';
+export { default as HintArrow } from './HintArrow';

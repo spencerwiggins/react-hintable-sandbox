@@ -1,6 +1,6 @@
-import React from 'react'
-import { render } from 'react-dom'
-import Hintable, { Hint } from '../react-hintable'
+import React from 'react';
+import { render } from 'react-dom';
+import Hintable, { Hint } from '../react-hintable';
 
 const App = () => (
   <div
@@ -19,18 +19,18 @@ const App = () => (
               height: 150,
               marginLeft: 200,
               marginTop: 100,
-              backgroundColor: '#333',
+              backgroundColor: '#aaa',
               color: '#fff'
             }}
             ref={setTarget}
           />
-          <Hint position="top" target={target}>
+          <Hint position="bottom" target={target}>
             Click on the button above
           </Hint>
         </div>
       )}
     />
   </div>
-)
+);
 
-render(<App />, document.getElementById('root'))
+render(<App />, document.getElementById('root'));

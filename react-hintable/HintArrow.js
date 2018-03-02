@@ -1,31 +1,33 @@
-import React, { Fragment } from 'react'
+import React, { Fragment } from 'react';
 
 const rotateMap = {
   top: 180,
   right: -90,
   bottom: 0,
   left: 90
-}
+};
 
 export default class HintArrow extends React.Component {
   state = {
     style: {
       transform: `rotate(${rotateMap[this.props.position]}deg)`
     }
-  }
+  };
 
   static defaultProps = {
     arrowFillColor: '#ccc',
     arrowSize: 24
-  }
+  };
 
   render() {
+    const { arrowSize, arrowFillColor } = this.props;
+
     return (
       <svg
-        fill={this.props.arrowFillColor}
-        height={this.props.arrowSize}
-        viewBox="0 0 24 24"
-        width={this.props.arrowSize}
+        fill={arrowFillColor}
+        height={arrowSize}
+        viewBox={`0 0 ${arrowSize} ${arrowSize}`}
+        width={arrowSize}
         xmlns="http://www.w3.org/2000/svg"
         style={this.state.style}
       >
@@ -34,6 +36,6 @@ export default class HintArrow extends React.Component {
           <path d="M0 0h24v24H0z" fill="none" />
         </Fragment>
       </svg>
-    )
+    );
   }
 }
