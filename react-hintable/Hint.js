@@ -4,8 +4,6 @@ import HintArrow from './HintArrow'
 
 const style = {
   hintElement: {
-    // background: '#ccc',
-    // padding: 10,
     position: 'absolute',
     display: 'flex',
     alignItems: 'center'
@@ -18,8 +16,6 @@ const directionMap = {
   right: 'row',
   bottom: 'column'
 }
-
-// const flex
 
 const _defaultPosition = 'bottom'
 
@@ -42,12 +38,6 @@ export default class Hint extends React.Component {
       position,
       offset
     })
-
-    // if (position !== _defaultPosition) {
-    // this.setState({
-    //   flexDirection: directionMap[position]
-    // })
-    // }
 
     this.setState({
       hintPosition
