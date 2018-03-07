@@ -6,7 +6,7 @@ import Adapter from "enzyme-adapter-react-16"
 
 Enzyme.configure({ adapter: new Adapter() })
 
-describe("Hintable", () => {
+describe("<Hintable />", () => {
   describe("render prop", () => {
     it("should exist", () => {
       expect(() => shallow(<Hintable />)).to.throw(
