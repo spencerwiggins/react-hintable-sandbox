@@ -1,16 +1,14 @@
-// todo: if no reset, body has 8px margin (how to calculate for that)
-
 const _topAndBottomLeft = (hint, specs) => {
-  const hintMiddle = _half(hint.offsetWidth);
-  const targetMiddle = _half(specs.width);
+  const hintMiddle = _half(hint.offsetWidth)
+  const targetMiddle = _half(specs.width)
 
-  return specs.left + targetMiddle - hintMiddle;
-};
+  return specs.left + targetMiddle - hintMiddle
+}
 
 const _leftAndRightTop = (hint, specs) =>
-  specs.top + _half(specs.height - hint.offsetHeight);
+  specs.top + _half(specs.height - hint.offsetHeight)
 
-const _half = x => x / 2;
+const _half = x => x / 2
 
 const _floorObjVals = obj => {
   // const out = Object.keys(obj).reduce((acc, val) => {
@@ -20,16 +18,16 @@ const _floorObjVals = obj => {
   // }, {})
 
   // use above (object.keys) when available
-  let _obj = {};
+  let _obj = {}
   for (let item in obj) {
-    _obj[item] = Math.floor(obj[item]);
+    _obj[item] = Math.floor(obj[item])
   }
-  return _obj;
-};
+  return _obj
+}
 
 export default (hint, target, { position, offset }) => {
-  const rect = target.getBoundingClientRect();
-  const specs = _floorObjVals(rect);
+  const rect = target.getBoundingClientRect()
+  const specs = _floorObjVals(rect)
 
   const map = {
     top: {
@@ -48,7 +46,7 @@ export default (hint, target, { position, offset }) => {
       top: _leftAndRightTop(hint, specs),
       left: specs.left + specs.width + offset
     }
-  };
+  }
 
-  return map[position];
-};
+  return map[position]
+}
