@@ -1,13 +1,13 @@
-import React from 'react';
-import { render } from 'react-dom';
-import Hintable, { Hint } from '../react-hintable';
+import React from "react"
+import { render } from "react-dom"
+import Hintable, { Hint } from "../react-hintable"
 
 const App = () => (
   <div
     style={{
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-between'
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between"
     }}
   >
     <Hintable
@@ -19,8 +19,8 @@ const App = () => (
               height: 150,
               marginLeft: 200,
               marginTop: 100,
-              backgroundColor: '#aaa',
-              color: '#fff'
+              backgroundColor: "#aaa",
+              color: "#fff"
             }}
             ref={setTarget}
           />
@@ -31,6 +31,6 @@ const App = () => (
       )}
     />
   </div>
-);
+)
 
-render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById("root"))
