@@ -1,6 +1,6 @@
 import React from "react"
 import { expect } from "chai"
-import Hintable from "../Hintable"
+import Hintable from "../src/Hintable"
 import Enzyme, { shallow } from "enzyme"
 import Adapter from "enzyme-adapter-react-16"
 
