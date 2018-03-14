@@ -1,5 +1,5 @@
 import { expect } from "chai"
-import getHintPosition from "../getHintPosition"
+import getHintPosition from "../src/getHintPosition"
 
 describe("getHintPosition", () => {
   let target = {},
@@ -31,7 +31,7 @@ describe("getHintPosition", () => {
       offset: 10
     }
 
-    const expected = { top: 40, left: 250 }
+    const expected = { bottom: 155, left: 250 }
 
     const hintPosition = getHintPosition(hint, target, options)
     expect(hintPosition).to.deep.equal(expected)
@@ -43,7 +43,7 @@ describe("getHintPosition", () => {
       offset: 10
     }
 
-    const expected = { top: 150, left: 360 }
+    const expected = { top: 50, left: 360 }
 
     const hintPosition = getHintPosition(hint, target, options)
     expect(hintPosition).to.deep.equal(expected)
@@ -55,7 +55,7 @@ describe("getHintPosition", () => {
       offset: 10
     }
 
-    const expected = { top: 265, left: 250 }
+    const expected = { top: 160, left: 250 }
 
     const hintPosition = getHintPosition(hint, target, options)
     expect(hintPosition).to.deep.equal(expected)
@@ -67,7 +67,7 @@ describe("getHintPosition", () => {
       offset: 10
     }
 
-    const expected = { top: 150, left: 140 }
+    const expected = { top: 50, left: 140 }
 
     const hintPosition = getHintPosition(hint, target, options)
     expect(hintPosition).to.deep.equal(expected)

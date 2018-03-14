@@ -1,12 +1,12 @@
 import React from "react"
 import { expect } from "chai"
-import Hintable from "../Hintable"
+import Hintable from "../src/Hintable"
 import Enzyme, { shallow } from "enzyme"
 import Adapter from "enzyme-adapter-react-16"
 
 Enzyme.configure({ adapter: new Adapter() })
 
-describe("Hintable", () => {
+describe("<Hintable />", () => {
   describe("render prop", () => {
     it("should exist", () => {
       expect(() => shallow(<Hintable />)).to.throw(
