@@ -26,7 +26,7 @@ type Props = {
   // target: React.ElementRef<"div">,
   position: "top" | "right" | "bottom" | "left",
   offset?: number,
-  active: boolean,
+  visible: boolean,
   children: React.Node,
   style?: Object
 }
@@ -38,7 +38,7 @@ type State = {
 
 export default class Hint extends React.Component<Props, State> {
   static defaultProps = {
-    active: true,
+    visible: true,
     position: DEFAULT_POSITION,
     offset: 5
   }
@@ -48,12 +48,12 @@ export default class Hint extends React.Component<Props, State> {
     flexDirection: directionMap[this.props.position]
   }
 
-  componentWillMount() {
-    invariant(
-      this.props.hasOwnProperty("target"),
-      "You need to pass a target prop to Hint"
-    )
-  }
+  // componentWillMount() {
+  //   invariant(
+  //     this.props.hasOwnProperty("target"),
+  //     "You need to pass a target prop to Hint"
+  //   )
+  // }
 
   componentDidMount() {
     window.addEventListener("scroll", () => this.setHintPosition(this.props))
@@ -91,7 +91,7 @@ export default class Hint extends React.Component<Props, State> {
   hintElement: ?React.ElementRef<"div">
 
   render() {
-    const { active, children, position, style: propsStyle } = this.props
+    const { visible, children, position, style: propsStyle } = this.props
 
     const hintStyle = {
       ...style.hintElement,
@@ -101,7 +101,7 @@ export default class Hint extends React.Component<Props, State> {
     }
 
     return (
-      active && (
+      visible && (
         <div style={hintStyle} ref={node => (this.hintElement = node)}>
           <HintArrow position={position} />
           <div>{children}</div>

@@ -28,11 +28,10 @@ export default class Parent extends React.Component {
                 ref={setTarget}
                 onClick={actions.dismiss}
               />
-              {visible && (
-                <Hint position="bottom" target={target}>
-                  Click on the button above
-                </Hint>
-              )}
+
+              <Hint visible={visible} position="bottom" target={target}>
+                Click on the button above
+              </Hint>
             </div>
           )}
         />
