@@ -21,16 +21,18 @@ export default class Parent extends React.Component {
 
         <Hintable
           ref="hintRef1"
-          render={(setTarget, target, actions) => (
+          render={(setTarget, target, visible, actions) => (
             <div>
               <div
                 style={style.target}
                 ref={setTarget}
                 onClick={actions.dismiss}
               />
-              <Hint position="bottom" target={target}>
-                Click on the button above
-              </Hint>
+              {visible && (
+                <Hint position="bottom" target={target}>
+                  Click on the button above
+                </Hint>
+              )}
             </div>
           )}
         />

@@ -48,12 +48,12 @@ export default class Hint extends React.Component<Props, State> {
     flexDirection: directionMap[this.props.position]
   }
 
-  // componentWillMount() {
-  //   invariant(
-  //     this.props.hasOwnProperty("target"),
-  //     "You need to pass a target prop to Hint"
-  //   )
-  // }
+  componentWillMount() {
+    invariant(
+      this.props.hasOwnProperty("target"),
+      "You need to pass a target prop to Hint"
+    )
+  }
 
   componentDidMount() {
     window.addEventListener("scroll", () => this.setHintPosition(this.props))

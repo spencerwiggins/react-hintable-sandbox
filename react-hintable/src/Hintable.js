@@ -83,7 +83,12 @@ export default class Hintable extends React.Component<Props, State> {
   render() {
     return (
       <div style={style.container}>
-        {this.props.render(this.setTargetNode, this.state.target, this.actions)}
+        {this.props.render(
+          this.setTargetNode,
+          this.state.target,
+          this.state.visible,
+          this.actions
+        )}
       </div>
     )
   }
